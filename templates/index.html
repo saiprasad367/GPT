@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT X</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor">
+        <div class="cursor-ball"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <span class="logo-text">GPT X</span>
+            <div class="logo-3d"></div>
+        </div>
+        <div class="nav-right">
+            <a href="account.html"><i class="fas fa-user-astronaut"></i></a>
+        </div>
+    </nav>
+
+    <div class="chat-container">
+        <div class="chat-area" id="chat-box">
+            <div class="bot-message">Greetings! How may I assist you today?</div>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Enter your query..." class="chat-input">
+            <button id="send-btn" class="send-button"><i class="fas fa-rocket"></i></button>
+        </div>
+    </div>
+
+    <div id="account-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">×</span>
+            <h2>Account Portal</h2>
+            <p>Access your credentials</p>
+            <button onclick="window.location.href='login.html'">Login</button>
+            <button onclick="window.location.href='signup.html'">Signup</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="static/js/script.js" defer></script>
+    <script>
+        const accountIcon = document.querySelector('.nav-right i');
+        const accountModal = document.getElementById("account-modal");
+
+        accountIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            accountModal.style.display = 'block';
+        });
+
+        function closeModal() {
+            accountModal.style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == accountModal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
